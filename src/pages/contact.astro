@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Container from '../components/Container.astro';
+import { url } from '../lib/site';
+---
+
+<BaseLayout title="Contact" description="Contact details for NIDO France.">
+  <div class="map-embed">
+    <iframe
+      src="https://www.google.com/maps?q=111+Avenue+Victor-Hugo,+75016+Paris,+France&output=embed"
+      width="100%"
+      height="100%"
+      style="border:0;"
+      allowfullscreen
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="NIDO France — 111 Avenue Victor-Hugo, 75016 Paris"
+    ></iframe>
+  </div>
+
+  <div class="page-header">
+    <Container>
+      <h1>Contact</h1>
+    </Container>
+  </div>
+
+  <section>
+    <Container class="prose">
+      <p>Nigerians In Diaspora Organization Europe – France</p>
+      <p>111 Avenue Victor-Hugo, 75016 Paris, France</p>
+      <p><a href="mailto:nidoefrance@gmail.com">nidoefrance@gmail.com</a></p>
+      <p>To get in touch, please use the contact form on the <a href={url('about')}>About Us</a> page.</p>
+    </Container>
+  </section>
+</BaseLayout>

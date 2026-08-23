@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import NewsCard from '../../components/NewsCard.astro';
+import Container from '../../components/Container.astro';
+import { url } from '../../lib/site';
+
+const allNews = (await getCollection('news', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<BaseLayout title="News" description="News and announcements from NIDO France.">
+  <img class="page-banner" src={url('images/news-banner.jpg')} alt="Diaspora Day 2016" />
+  <div class="page-banner-bar"></div>
+
+  <div class="page-header">
+    <Container>
+      <h1>News</h1>
+    </Container>
+  </div>
+
+  <section>
+    <Container>
+      <div class="news-grid">
+        {allNews.map((entry) => <NewsCard entry={entry} />)}
+      </div>
+    </Container>
+  </section>
+</BaseLayout>

@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Container from '../components/Container.astro';
+import { url } from '../lib/site';
+---
+
+<BaseLayout title="Membership" description="Objectives of NIDO France and how to become a member.">
+  <img class="page-banner" src={url('images/membership-banner.png')} alt="NIDO France members" />
+  <div class="page-banner-bar"></div>
+
+  <div class="page-header">
+    <Container>
+      <h1>Membership</h1>
+    </Container>
+  </div>
+
+  <section>
+    <Container class="prose">
+      <h2>Objectives of NIDOE France</h2>
+      <ul>
+        <li>To promote the principles of equality of opportunity, diversity and good relations among Nigerians in the Diaspora;</li>
+        <li>To participate in the promotion of social and cultural harmony within communities;</li>
+        <li>To encourage Nigerians living in Europe to be good and law-abiding citizens of Europe;</li>
+        <li>To assist in promoting and enhancing a good image for Nigeria in the international arena in all areas, by whatever ethical and legitimate means feasible;</li>
+        <li>To promote the spirit of patriotism amongst Nigerians living in Europe and encourage their participation in the affairs of Nigeria;</li>
+        <li>To encourage and assist Nigerians who wish to return to Nigeria permanently, and to dissuade skilled Nigerians from emigrating from Nigeria, thereby helping to stem further brain drain.</li>
+      </ul>
+    </Container>
+  </section>
+
+  <section>
+    <Container class="prose">
+      <h2>How to Become a Member?</h2>
+      <p>To become a member, simply download and complete the form:</p>
+      <p>
+        <a class="button" href={url('documents/membership-application.pdf')}>
+          Download membership application (PDF)
+        </a>
+      </p>
+    </Container>
+  </section>
+</BaseLayout>

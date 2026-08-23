@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+import Container from '../components/Container.astro';
+import { url } from '../lib/site';
+
+const youtubeId = '_SJJ-rjJXRM';
+---
+
+<BaseLayout title="About Us" description="Aims, objectives and history of NIDO France — Nigerians In Diaspora Organisation Europe, France Chapter.">
+  <img class="page-banner" src={url('images/about-banner.jpg')} alt="Zuma Rock, Abuja" />
+  <div class="page-banner-bar"></div>
+
+  <div class="page-header">
+    <Container>
+      <h1>About Us</h1>
+      <p>Diaspora Delivering Results for Our Community</p>
+    </Container>
+  </div>
+
+  <section class="section-band">
+    <Container>
+      <div class="aims-block">
+        <div class="aims-block__text prose">
+          <h2>Aims and Objectives</h2>
+          <p>Some of our aims and objectives are:</p>
+          <ul>
+            <li>Providing services and advice on specific issues in the areas of: Economy, Cultural / Environmental Development Projects, Education, Science &amp; Technology, Information Technology, Health, etc, in the interest of the Federal and State Governments, Social Welfare, NGO and the Private Sectors.</li>
+            <li>Serving as technical adviser, collaborators and as catalysts with Nigeria, in respect to policy development, formulation and implementation of Social and Economic Programmes.</li>
+            <li>Providing a built-database of Nigerians with Professional skills and make such database available for the benefit of the Federal and State government, the Private Sector, and eventually Nigeria's partners.</li>
+          </ul>
+
+          <p>"Mobilizing Nigerians in Diaspora for National Development is the primary goal of the Organization". NIDOE-France is a non-profit Organization registered under the French Law, a Chapter of NIDOE-Europe which has its headquarters in London. The chapters are responsible for establishing and maintaining close liaison with their host country governments and other Organizations in the host country. The Chapters also serve as on-the-spot sources for the primary screening for potential technical committee members and/or for overseas consultancy work.</p>
+
+          <p>Since the launching of the France Chapter in 2001, a reasonable number of achievements have been recorded in the areas of contributing to National Development and ensuring the welfare of Nigerians in France.</p>
+
+          <p>NIDOE-France maintains a steady and cordial relationship with the Nigerian Embassy in Paris, other Nigerian Associations in France and the Nigerian National Volunteers Services (NNVS) at the Presidency in Abuja, Nigeria. The Organization also runs country programs, conferences and seminars on topical issues relevant to Nigeria's aspirations and developmental process.</p>
+
+          <p>The Organization is managed by members of its Executive Board on a daily basis.</p>
+
+          <p>The membership of NIDOE-France is open to all Nigerians legally resident in France who have professional skills in their different areas of expertise with proven records. Welcome again, as you surf, this site takes you to other areas of interest to you and our areas of collaboration and actions.</p>
+
+          <p><strong>Long Live Nigeria! Long Live France!! Long Live NIDO!!!</strong></p>
+        </div>
+
+        <figure class="aims-block__portrait">
+          <img src={url('images/about-portrait.jpg')} alt="Engr. Solomon OGBAJI, President of NIDO France" width="220" />
+          <p class="aims-block__portrait-intro">Nigérians in Diaspora Organisation Europe France chapter (NIDOE-France) is a non-governmental organisation whose membership is drawn from Nigérians living in France and has for vision, develop effective, unified platform for Nigerians abroad to harness their talents, expertise and resources for Nigerian's developement and nation building.</p>
+          <figcaption>
+            Solomon OGBAJI
+            <em>NIDO France Constitution On Demand</em>
+          </figcaption>
+        </figure>
+      </div>
+    </Container>
+  </section>
+
+  <section>
+    <Container class="prose">
+      <h2>Video</h2>
+      <div style="aspect-ratio: 16/9; max-width: 40rem;">
+        <iframe
+          width="100%"
+          height="100%"
+          src={`https://www.youtube.com/embed/${youtubeId}`}
+          title="NIDO France"
+          style="border: 0;"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </Container>
+  </section>
+
+  <section class="section-band">
+    <Container>
+      <h2>Contact NIDOE!</h2>
+      <ContactForm />
+    </Container>
+  </section>
+</BaseLayout>

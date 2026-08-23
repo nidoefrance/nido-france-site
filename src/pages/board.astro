@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BoardMemberCard from '../components/BoardMemberCard.astro';
+import Container from '../components/Container.astro';
+import { url } from '../lib/site';
+
+const members = (await getCollection('board')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout title="Current Executive" description="Meet the current executive board of NIDO France.">
+  <img class="page-banner" src={url('images/banner.jpg')} alt="Nigerian flag wavers" />
+  <div class="page-banner-bar"></div>
+
+  <div class="page-header">
+    <Container>
+      <h1>Current Executives</h1>
+    </Container>
+  </div>
+
+  <section>
+    <Container>
+      <div class="board-list">
+        {members.map((entry) => <BoardMemberCard entry={entry} />)}
+      </div>
+    </Container>
+  </section>
+</BaseLayout>

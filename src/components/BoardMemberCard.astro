@@ -1,0 +1,17 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { url } from '../lib/site';
+
+interface Props {
+  entry: CollectionEntry<'board'>;
+}
+
+const { entry } = Astro.props;
+const { name, role, photo } = entry.data;
+---
+
+<div class="board-card">
+  <img src={url(photo)} alt={name} loading="lazy" />
+  <h3>{name}</h3>
+  <p>{role}</p>
+</div>

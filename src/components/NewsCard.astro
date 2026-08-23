@@ -1,0 +1,28 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { url } from '../lib/site';
+
+interface Props {
+  entry: CollectionEntry<'news'>;
+}
+
+const { entry } = Astro.props;
+const { title, date, image, imagePosition } = entry.data;
+---
+
+<a class="news-card" href={url(`news/${entry.slug}`)}>
+  {image && (
+    <img
+      src={url(image)}
+      alt=""
+      loading="lazy"
+      style={imagePosition === 'top' ? 'object-position: top;' : undefined}
+    />
+  )}
+  <div class="news-card__body">
+    <time datetime={date.toISOString()}>
+      {date.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' })}
+    </time>
+    <h3>{title}</h3>
+  </div>
+</a>

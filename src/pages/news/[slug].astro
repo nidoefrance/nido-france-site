@@ -1,0 +1,49 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Container from '../../components/Container.astro';
+import { url } from '../../lib/site';
+
+export async function getStaticPaths() {
+  const allNews = await getCollection('news', ({ data }) => !data.draft);
+  return allNews.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { title, date, dateApprox, image, pdfs } = entry.data;
+const { Content } = await entry.render();
+---
+
+<BaseLayout title={title}>
+  <article>
+    <Container class="prose article-header">
+      <p><a href={url('news')}>&larr; Back to news</a></p>
+      <h1>{title}</h1>
+      <time datetime={date.toISOString()}>
+        {dateApprox && 'circa '}
+        {date.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' })}
+      </time>
+
+      {image && (
+        <img class="article-image" src={url(image)} alt="" />
+      )}
+
+      <Content />
+
+      {pdfs.length > 0 && (
+        <div class="article-pdfs">
+          <ul>
+            {pdfs.map((pdf) => (
+              <li>
+                <a href={url(pdf.file)}>{pdf.label} (PDF)</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </Container>
+  </article>
+</BaseLayout>

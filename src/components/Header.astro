@@ -1,0 +1,44 @@
+---
+import Container from './Container.astro';
+import { url } from '../lib/site';
+
+const { pathname } = Astro.url;
+
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About Us' },
+  { href: '/board', label: 'Current Executive' },
+  { href: '/membership', label: 'Membership' },
+  { href: '/news', label: 'News' },
+  { href: '/contact', label: 'Contact' },
+];
+
+function isActive(href: string) {
+  const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+  const current = pathname.replace(base, '') || '/';
+  if (href === '/') return current === '/';
+  return current.startsWith(href);
+}
+---
+
+<header class="site-header">
+  <Container class="site-header__inner">
+    <a class="site-header__brand" href={url()}>
+      <img src={url('images/logo.jpg')} alt="NIDO France logo" />
+    </a>
+    <nav aria-label="Primary">
+      <ul class="site-nav">
+        {links.map((link) => (
+          <li>
+            <a
+              href={url(link.href)}
+              aria-current={isActive(link.href) ? 'page' : undefined}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </Container>
+</header>
