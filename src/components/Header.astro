@@ -26,7 +26,18 @@ function isActive(href: string) {
     <a class="site-header__brand" href={url()}>
       <img src={url('images/logo.jpg')} alt="NIDO France logo" />
     </a>
-    <nav aria-label="Primary">
+    <button
+      type="button"
+      class="site-header__toggle"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+      aria-label="Toggle navigation menu"
+    >
+      <span class="site-header__toggle-bar"></span>
+      <span class="site-header__toggle-bar"></span>
+      <span class="site-header__toggle-bar"></span>
+    </button>
+    <nav aria-label="Primary" id="primary-navigation" class="site-header__nav">
       <ul class="site-nav">
         {links.map((link) => (
           <li>
@@ -42,3 +53,25 @@ function isActive(href: string) {
     </nav>
   </Container>
 </header>
+
+<script>
+  const toggle = document.querySelector('.site-header__toggle');
+  const nav = document.getElementById('primary-navigation');
+
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('is-open');
+      toggle.classList.toggle('is-open', isOpen);
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    nav.addEventListener('click', (event) => {
+      const target = event.target as HTMLElement;
+      if (target.tagName === 'A') {
+        nav.classList.remove('is-open');
+        toggle.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+</script>
