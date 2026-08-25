@@ -5,4 +5,5 @@ export default defineConfig({
   base: '/',
   output: 'static',
   trailingSlash: 'never',
+  build: { format: 'file' },
 });
