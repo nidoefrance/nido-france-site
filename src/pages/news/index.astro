@@ -10,13 +10,13 @@ const allNews = (await getCollection('news', ({ data }) => !data.draft)).sort(
 );
 ---
 
-<BaseLayout title="News" description="News and announcements from NIDO France.">
+<BaseLayout title="NewsRoom" description="NewsRoom and announcements from NIDO France.">
   <img class="page-banner" src={url('images/news-banner.jpg')} alt="Diaspora Day 2016" />
   <div class="page-banner-bar"></div>
 
   <div class="page-header">
     <Container>
-      <h1>News</h1>
+      <h1>NewsRoom</h1>
     </Container>
   </div>
 
