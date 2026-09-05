@@ -25,7 +25,7 @@ const bannerUrl = url('images/banner.jpg');
       <h2>NewsRoom</h2>
     </div>
     <Container>
-      <div class="news-grid">
+      <div class="news-grid news-grid--featured">
         {latestNews.map((entry) => <NewsCard entry={entry} />)}
       </div>
       <p><a href={url('news')}>See all NewsRoom &rarr;</a></p>

@@ -347,6 +347,13 @@ section {
   gap: 1.5rem;
 }
 
+/* Homepage featured news: only a couple of cards, centered rather than
+   left-aligned in the 3-column grid. */
+.news-grid--featured {
+  max-width: 600px;
+  margin-inline: auto;
+}
+
 .news-card {
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
