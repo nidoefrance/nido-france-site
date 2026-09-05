@@ -347,11 +347,18 @@ section {
   gap: 1.5rem;
 }
 
-/* Homepage featured news: only a couple of cards, centered rather than
-   left-aligned in the 3-column grid. */
+/* Homepage featured news: two cards, centered rather than left-aligned in
+   the auto-fill grid, and each exactly half the container width. */
 .news-grid--featured {
   max-width: 600px;
   margin-inline: auto;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 480px) {
+  .news-grid--featured {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 .news-card {
