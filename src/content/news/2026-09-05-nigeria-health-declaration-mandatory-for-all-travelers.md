@@ -9,7 +9,7 @@ All travelers entering Nigeria — including Nigerian citizens returning home �
 
 **What members need to know:**
 
-- Complete the declaration online at <a href="https://healthapp.ncdc.gov.ng/" target="_blank" rel="noopener noreferrer">healthapp.ncdc.gov.ng</a>, ideally at least 24 hours before departure
+- Complete the declaration online at <a href="https://healthapp.ncdc.gov.ng/" target="_blank" rel="noopener noreferrer"><strong>healthapp.ncdc.gov.ng</strong></a>, ideally at least 24 hours before departure
 - The form is free of charge and takes only a few minutes
 - You will receive a QR-coded PDF confirmation by email — keep it accessible on your phone or printed for arrival
 - Have your passport, travel itinerary, Nigerian destination address, and emergency contact details ready before starting
